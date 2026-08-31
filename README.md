@@ -394,8 +394,11 @@ Fraud probability: 0.2678
 Decision threshold: 0.80
 Prediction: LEGITIMATE
 
-Project Structure:
+---
 
+## Project Structure
+
+```text
 banking-fraud-analytics/
 │
 ├── models/
@@ -424,67 +427,103 @@ banking-fraud-analytics/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+```
 
-Installation
+---
+
+## Installation
+
 Clone the repository:
-git clone https://github.com/kunal2492/banking-fraud-analytics.git
-cd banking-fraud-analytics
-
-Create a virtual environment:
-python -m venv .venv
-source .venv/bin/activate
-
-Install dependencies:
-pip install -r requirements.txt
-
-Dataset Setup:
-The raw PaySim CSV is intentionally excluded from GitHub because of its size.
-Place the downloaded dataset at:
-data/raw/PS_20174392719_1491204439457_log.csv
-The raw data directory is excluded through .gitignore.
-
-Key Skills Demonstrated
-Python
-Pandas
-NumPy
-Exploratory Data Analysis
-Fraud Analytics
-Feature Engineering
-Imbalanced Classification
-Logistic Regression
-Random Forest
-Model Evaluation
-Precision / Recall / F1
-ROC-AUC
-PR-AUC
-Confusion Matrix Analysis
-Feature Ablation
-Decision Threshold Optimisation
-Model Serialization with Joblib
-Reusable Prediction Pipelines
-Git & GitHub
-
-Important Limitation
-PaySim is a synthetic financial transaction dataset.
-Some highly predictive relationships—particularly those involving account balances—may reflect the way the simulator generates fraudulent transactions.
-For this reason, near-perfect performance from the full Random Forest was not treated as evidence of real-world deployment performance.
-The reduced-feature ablation model and threshold analysis were included to provide a more conservative and transparent evaluation.
-
-Main Takeaway
-This project demonstrates that fraud detection should not be evaluated using accuracy alone.
-A useful fraud system must balance:
-detecting genuine fraud;
-minimising missed fraud;
-controlling false positives;
-understanding model shortcuts;
-and selecting an operational decision threshold based on business constraints.
-The final reduced Random Forest at a 0.80 threshold achieved:
-92.75% precision, 80.16% recall, and 85.99% F1.
-
-
-Then save the file and run:
 
 ```bash
-git add README.md
-git commit -m "Add complete project documentation"
-git push
+git clone https://github.com/kunal2492/banking-fraud-analytics.git
+cd banking-fraud-analytics
+```
+
+Create and activate a virtual environment:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Dataset Setup
+
+The project uses the **PaySim Synthetic Financial Dataset for Fraud Detection**.
+
+The raw dataset is intentionally excluded from the GitHub repository because of its size.
+
+Place the downloaded CSV file at:
+
+```text
+data/raw/PS_20174392719_1491204439457_log.csv
+```
+
+The `data/raw/` directory is excluded from version control through `.gitignore`.
+
+---
+
+## Key Skills Demonstrated
+
+- Python
+- Pandas
+- NumPy
+- Exploratory Data Analysis
+- Fraud Analytics
+- Feature Engineering
+- Imbalanced Classification
+- Logistic Regression
+- Random Forest
+- Model Evaluation
+- Precision, Recall and F1 Score
+- ROC-AUC and PR-AUC
+- Confusion Matrix Analysis
+- Feature Ablation
+- Decision-Threshold Optimisation
+- Model Serialization with Joblib
+- Reusable Prediction Pipelines
+- Git and GitHub
+
+---
+
+## Important Limitation
+
+PaySim is a **synthetic financial transaction dataset**.
+
+Some highly predictive relationships—particularly those involving account-balance behaviour—may reflect characteristics of the simulator rather than patterns that would generalise directly to real-world banking transactions.
+
+For this reason, the near-perfect performance of the full Random Forest should be interpreted cautiously.
+
+The reduced-feature ablation model and threshold analysis were included to provide a more conservative and transparent assessment of predictive performance.
+
+---
+
+## Main Takeaway
+
+This project demonstrates why fraud detection should not be evaluated using accuracy alone.
+
+A useful fraud-detection system must balance:
+
+- detecting genuine fraud;
+- minimising missed fraud;
+- controlling false positives;
+- understanding model shortcuts and potential leakage;
+- and selecting an operational decision threshold based on business costs.
+
+The final **Reduced Random Forest** at a **0.80 decision threshold** achieved:
+
+- **92.75% precision**
+- **80.16% recall**
+- **85.99% F1 score**
+
+This means the selected model detected **1,317 of 1,643 fraud cases** in the test set while generating only **103 false fraud alerts**.
+
+The project therefore moves beyond simply training a classifier and demonstrates an end-to-end workflow covering **data exploration, feature engineering, model comparison, ablation testing, threshold optimisation, model persistence, and reusable prediction**.
