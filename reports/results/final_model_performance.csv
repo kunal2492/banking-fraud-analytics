@@ -1,0 +1,2 @@
+model,threshold,precision,recall,f1_score,true_negatives,false_positives,false_negatives,true_positives
+Reduced Random Forest,0.8,0.9275,0.8016,0.8599,552336,103,326,1317
